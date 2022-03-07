@@ -1,11 +1,11 @@
-﻿using System.Text.RegularExpressions;
+﻿//using System.Text.RegularExpressions;
 
-namespace LegalPlotter
-{
-    internal static class Legal
-    {
+//namespace LegalPlotter
+//{
+//    internal static class Legal
+//    {
 
-        Active.Ed.WriteMessage()
+//        Active.Ed.WriteMessage()
 
-    }
-}
+//    }
+//}
