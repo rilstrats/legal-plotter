@@ -1,25 +1,31 @@
-﻿using Autodesk.AutoCAD.Runtime;
+﻿//using Autodesk.AutoCAD.Runtime;
 
-namespace LegalPlotter
-{
-    public static class Commands
-    {
+//namespace LegalPlotter
+//{
+//    public static class Commands
+//    {
 
-        [CommandMethod("LEGALPLOTTER")]
-        public static void LegalPlotter()
-        {
-            Active.CreateLayer("Parcels");
+//        [CommandMethod("LEGALPLOTTER")]
+//        public static void LegalPlotter()
+//        {
+//            Active.CreateLayer("Parcels");
 
-            (double, double)[] points = {
-                (0, 0), 
-                (10, 0), 
-                (10, 10), 
-                (0, 10), 
-                (0,0)
-            };
+//            (double, double)[] points = {
+//                (0, 0), 
+//                (10, 0), 
+//                (10, 10), 
+//                (0, 10), 
+//                (0,0)
+//            };
 
-            Active.DrawPolyline(points);
-        }
+//            Active.DrawPolyline(points);
+//        }
 
-    }
-}
+//        [CommandMethod("PRACTICE")]
+//        public static void Practice()
+//        {
+//            Legal.OpenForm();
+//        }
+
+//    }
+//}

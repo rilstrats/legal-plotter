@@ -12,8 +12,12 @@ namespace LegalPlotter
 {
     public partial class LegalForm : Form
     {
-        public LegalForm()
+
+        public Legal legal;
+
+        public LegalForm(Legal legalObject)
         {
+            legal = legalObject;
             InitializeComponent();
         }
 
@@ -40,6 +44,13 @@ namespace LegalPlotter
         private void LegalForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void SubmitButton_Click(object sender, EventArgs e)
+        {
+            legal.parcelName = ParcelName.Text;
+            legal.legalDescription = LegalDescription.Text;
+            legal.LegalPlotter();
         }
     }
 }

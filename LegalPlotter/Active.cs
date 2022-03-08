@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Autodesk.AutoCAD.Colors;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
@@ -7,30 +8,30 @@ using Autodesk.AutoCAD.ApplicationServices;
 
 namespace LegalPlotter
 {
-    internal static class Active
+    public static class Active
     {
 
-        internal static Document Doc => Application.DocumentManager.MdiActiveDocument;
-        internal static Editor Edit => Doc.Editor;
-        internal static Database DB => Doc.Database;
+        public static Document Doc => Application.DocumentManager.MdiActiveDocument;
+        public static Editor Edit => Doc.Editor;
+        public static Database DB => Doc.Database;
 
-        internal static void CreateLayer(string layerName)
+        public static void CreateLayer(string layerName)
         {
             using (Transaction Trans = Active.DB.TransactionManager.StartTransaction())
             {
-                LayerTable LT = Trans.GetObject(DB.LayerTableId, OpenMode.ForWrite) as LayerTable;
+                Doc.LockDocument();
 
-                LayerTableRecord LTR;
+                LayerTable LT = Trans.GetObject(DB.LayerTableId, OpenMode.ForRead) as LayerTable;
 
                 if (!(LT.Has(layerName)))
                 {
-                    LTR = new LayerTableRecord
+                    LayerTableRecord LTR = new LayerTableRecord
                     {
                         Name = layerName,
                         Color = Color.FromColorIndex(ColorMethod.ByAci, 4)
                     };
 
-                    //LT.UpgradeOpen();
+                    LT.UpgradeOpen();
                     LT.Add(LTR);
                     Trans.AddNewlyCreatedDBObject(LTR, true);
                 }
@@ -40,7 +41,7 @@ namespace LegalPlotter
             }
         }
 
-        internal static void DrawPolyline((double, double)[] pointList )
+        public static void DrawPolyline(List<(double, double)> pointList )
         {
             try
             {
@@ -52,14 +53,19 @@ namespace LegalPlotter
                     BlockTableRecord BTR;
                     BTR = Trans.GetObject(BT[BlockTableRecord.ModelSpace], OpenMode.ForWrite) as BlockTableRecord;
 
-                    //Edit.WriteMessage("\nDrawing Line!");
+                    //Edit.WriteMessage("\nDrawing Polyline!");
+
+                    Point3d origin = SelectPoint("\nSelect starting point for parcel: ");
+                    double originX = origin.X;
+                    double originY = origin.Y;
+
 
                     Polyline polyLine = new Polyline();
 
                     int i = 0;
                     foreach ((double, double) point in pointList)
                     {
-                        polyLine.AddVertexAt(i, new Point2d(point.Item1, point.Item2), 0, 0, 0);
+                        polyLine.AddVertexAt(i, new Point2d(originX + point.Item1, originY + point.Item2), 0, 0, 0);
                         i++;
                     }
 
@@ -76,9 +82,31 @@ namespace LegalPlotter
             }
 
         }
-    
 
-        internal static void DrawLine(double x1, double y1, double x2, double y2)
+        public static Point3d SelectPoint(string prompt)
+        {
+            while (true)
+            {
+                try
+                {
+                    using (Transaction Trans = DB.TransactionManager.StartTransaction())
+                    {
+                        PromptPointOptions options = new PromptPointOptions(prompt);
+
+                        PromptPointResult PPR = Edit.GetPoint(options);
+
+                        return PPR.Value;
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    Edit.WriteMessage("\nError while selecting a point: " + ex.Message);
+                }
+            }
+        }
+
+
+        public static void DrawLine(double x1, double y1, double x2, double y2)
         {
             try
             {
@@ -108,7 +136,7 @@ namespace LegalPlotter
 
         }
 
-        internal static void DrawText(string text, double x, double y)
+        public static void DrawText(string text, double x, double y)
         {
             try
             {
@@ -146,7 +174,7 @@ namespace LegalPlotter
             }
         }
 
-        internal static void EraseAll()
+        public static void EraseAll()
         {
             try
             {
