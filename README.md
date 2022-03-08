@@ -6,7 +6,7 @@ In the legal, surveying, and civil engineering fields, real estate properties ar
 
 This was my inspiration for making legal Plotter! This project takes a text legal description as input and plots it into AutoCAD for you! This was initially made in Python using a macro, but it is now a full fledged plugin for AutoCAD built in C#.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Legal Plotter: AutoCAD Plugin](https://youtu.be/-bcxn0hQiHg)
 
 ## Running the Plugin
 
@@ -50,8 +50,6 @@ Some steps may already be completed
 * __ObjectARX SDK:__ A software development kit that assists in developing plugins for AutoCAD.
 
 ## Useful Websites
-
-{Make a list of websites that you found helpful in this project}
 * [W3 Schools: C#](https://www.w3schools.com/cs/index.php)
 * [Geeks for Geeks: C#](https://www.geeksforgeeks.org/csharp-programming-language/)
 * [Microsoft .NET Documentation](https://docs.microsoft.com/en-us/dotnet/)
@@ -64,3 +62,5 @@ Some steps may already be completed
 * Draw individual lines and curves, then join them all together (using layer as criteria for join)
 * Make regular expressions more robust, working in more situations
 * Implement error correction for text legal descriptions (replacing an incorrect letter "O" with the number "0")
+* Remove pre-filled information from the form
+* Edit the form to make it look and behave better (user can't resize, add minimize button, etc.)

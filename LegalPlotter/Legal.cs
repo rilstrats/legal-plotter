@@ -19,6 +19,7 @@ namespace LegalPlotter
             legalForm.Show();
         }
 
+        // Called when you press submit on the form
         public void LegalPlotter()
         {
             Active.CreateLayer("Parcel " + parcelName);
