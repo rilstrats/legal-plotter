@@ -4,7 +4,7 @@
 ## Overview
 In the legal, surveying, and civil engineering fields, real estate properties are described by specifying the length, bearing, and radius of lines and arcs of the outer property line. When you start working on a project, the first thing you often do is take these legal descriptions and plot them into a CAD software. It can be quite tedious to do this by hand, and I knew there had to be a better way to do this.
 
-This was my inspiration for making legal Plotter! This project takes a text legal description as input and plots it into AutoCAD for you! This was initially made in Python using a macro, but it is now a full fledged plugin for AutoCAD built in C#.
+This was my inspiration for making legal Plotter! This project takes a text legal description as input and plots it into AutoCAD for you. This was initially made in Python using a macro, but it is now a full fledged plugin for AutoCAD built in C#.
 
 [Legal Plotter: AutoCAD Plugin](https://youtu.be/-bcxn0hQiHg)
 
