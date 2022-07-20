@@ -11,30 +11,30 @@ This was my inspiration for making legal Plotter! This project takes a text lega
 ## Running the Plugin
 
 ### Method 1: Downloading LegalPlotter.dll
-* Open powershell and run ```wget -O Downloads/LegalPlotter.dll https://raw.githubusercontent.com/RileyStratton/LegalPlotter/main/LegalPlotter.dll```
+* Open powershell and run `wget -O Downloads/LegalPlotter.dll https://github.com/rilstrats/legal-plotter/releases/download/plugin/LegalPlotter.dll`
 * Open AutoCAD 2022
-* Type ```NETLOAD``` and press enter
-* Select ```LegalPlotter.dll``` from where you downloaded it
-* Default location is ```Downloads/LegalPlotter.dll```
-* Type ```LEGALPLOTTER``` and press enter
+* Type `NETLOAD` and press enter
+* Select `LegalPlotter.dll` from where you downloaded it
+* Default location is `Downloads/LegalPlotter.dll`
+* Type `LEGALPLOTTER` and press enter
 * Fill out the form, press submit, and watch the magic happen
 
 ### Method 2: Cloning Repository
 Some steps may already be completed
 * Clone this repository
 * Open the project in Visual Studio Community 2022
-* Select ```acad.exe``` as the startup object
-* Default location is ```C:\Program Files\Autodesk\AutoCAD 2022\acad.exe```
-* Optional: Use the ```/nologo``` command line argument for a faster startup. 
+* Select `acad.exe` as the startup object
+* Default location is `C:\Program Files\Autodesk\AutoCAD 2022\acad.exe`
+* Optional: Use the `/nologo` command line argument for a faster startup. 
 * Install ObjectArx 2022
-* Add ```AcCoreMgd.dll```, ```AcDbMgd.dll```, and ```AcMgd.dll``` as references
-* Default location is ```C:\Autodesk\ObjectARX_for_AutoCAD_2022_Win_64bit_dlm\inc\```
+* Add `AcCoreMgd.dll`, `AcDbMgd.dll`, and `AcMgd.dll` as references
+* Default location is `C:\Autodesk\ObjectARX_for_AutoCAD_2022_Win_64bit_dlm\inc\`
 * Set Copy Local to False for the three references you added
 * Run the program by pressing start
-* Once AutoCAD is open, type ```NETLOAD``` and press enter
-* Select ```LegalPlotter.dll```
-* Default location is ```Repository/LegalPlotter/Debug/LegalPlotter.dll```
-* Type ```LEGALPLOTTER``` and press enter
+* Once AutoCAD is open, type `NETLOAD` and press enter
+* Select `LegalPlotter.dll`
+* Default location is `Repository/LegalPlotter/Debug/LegalPlotter.dll`
+* Type `LEGALPLOTTER` and press enter
 * Fill out the form, press submit, and watch the magic happen
 
 ## Classes
