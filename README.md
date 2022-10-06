@@ -15,7 +15,7 @@ Check out this [video](https://youtu.be/-bcxn0hQiHg) to see it in action!
 * Open AutoCAD 2022
 * Type `NETLOAD` and press enter
 * Select `LegalPlotter.dll` from where you downloaded it
-* Default location is `Downloads/LegalPlotter.dll`
+  * Default location is `Downloads/LegalPlotter.dll`
 * Type `LEGALPLOTTER` and press enter
 * Fill out the form, press submit, and watch the magic happen
 
@@ -24,7 +24,7 @@ Check out this [video](https://youtu.be/-bcxn0hQiHg) to see it in action!
 ### Local Environment
 
 * Clone this repository
-* Open the project in Visual Studio Community 2022
+* Open the project in Visual Studio
 * Select `acad.exe` as the startup object
   * Default location is `C:\Program Files\Autodesk\AutoCAD 2022\acad.exe`
   * Optional: Use the `/nologo` command line argument for a faster startup. 
@@ -32,13 +32,13 @@ Check out this [video](https://youtu.be/-bcxn0hQiHg) to see it in action!
 * Add `AcCoreMgd.dll`, `AcDbMgd.dll`, and `AcMgd.dll` as references
   * Default location is `C:\Autodesk\ObjectARX_for_AutoCAD_2022_Win_64bit_dlm\inc\`
   * Set Copy Local to False for the three references you added
-* Run the program by pressing start
 
 ### Testing Local Builds
 
+* Press start in Visual Studio to compile and start AutoCAD
 * Once AutoCAD is open, type `NETLOAD` and press enter
 * Select `LegalPlotter.dll`
-* Default location is `Repository/LegalPlotter/Debug/LegalPlotter.dll`
+  * Default location is `Repository/LegalPlotter/Debug/LegalPlotter.dll`
 * Type `LEGALPLOTTER` and press enter
 * Fill out the form, press submit, and watch the magic happen
 
