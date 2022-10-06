@@ -33,7 +33,7 @@ Check out this [video](https://youtu.be/-bcxn0hQiHg) to see it in action!
   * Default location is `C:\Autodesk\ObjectARX_for_AutoCAD_2022_Win_64bit_dlm\inc\`
   * Set Copy Local to False for the three references you added
 
-### Testing Local Builds
+### Local Testing
 
 * Press start in Visual Studio to compile and start AutoCAD
 * Once AutoCAD is open, type `NETLOAD` and press enter
